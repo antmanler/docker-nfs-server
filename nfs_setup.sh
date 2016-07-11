@@ -3,11 +3,14 @@
 set -e
 
 mounts="${@}"
+HOSTS="${HOSTS:-*}"
+PARAMS="${PARAMS:-(rw,sync,no_root_squash,no_subtree_check,insecure)}"
 
 for mnt in "${mounts[@]}"; do
   src=$(echo $mnt | awk -F':' '{ print $1 }')
   mkdir -p $src
-  echo "$src *(rw,sync,no_subtree_check,fsid=0,no_root_squash)" >> /etc/exports
+  echo "$src $HOSTS$PARAMS" >> /etc/exports
+  echo "Added: $src $PARAMS"		 +  echo "Added: $src $HOSTS$PARAMS"
 done
 
 exec runsvdir /etc/sv
