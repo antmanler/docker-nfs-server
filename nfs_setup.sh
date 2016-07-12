@@ -7,9 +7,9 @@ HOSTS="${HOSTS:-*}"
 PARAMS="${PARAMS:-(rw,sync,no_root_squash,no_subtree_check,insecure,fsid=0)}"
 
 modprobe nfs
-echo "nfs        2049/tcp		# Network File System" >> /etc/services 
+echo "nfs        2049/tcp   # Network File System" >> /etc/services 
 echo "nfs        2049/udp   # Network File System" >> /etc/services
-echo "sunrpc     111/tcp		portmapper	# RPC 4.0 portmapper" >> /etc/services 
+echo "sunrpc     111/tcp    portmapper   # RPC 4.0 portmapper" >> /etc/services 
 echo "sunrpc     111/udp    portmapper" >> /etc/services
 
 for mnt in "${mounts[@]}"; do
