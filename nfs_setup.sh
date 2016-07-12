@@ -6,6 +6,8 @@ mounts="${@}"
 HOSTS="${HOSTS:-*}"
 PARAMS="${PARAMS:-(rw,sync,no_root_squash,no_subtree_check,insecure,fsid=0)}"
 
+modprobe nfs
+
 for mnt in "${mounts[@]}"; do
   src=$(echo $mnt | awk -F':' '{ print $1 }')
   mkdir -p $src
