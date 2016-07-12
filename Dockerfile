@@ -1,6 +1,6 @@
 FROM ubuntu:xenial
 ENV DEBIAN_FRONTEND noninteractive
-RUN apt-get update -qq && apt-get install -y nfs-kernel-server runit inotify-tools iana-etc -qq && apt-get -yq remove fgetty
+RUN apt-get update -qq && apt-get install -y nfs-kernel-server runit inotify-tools -qq && apt-get -yq remove fgetty
 RUN mkdir -p /exports
 
 RUN mkdir -p /etc/sv/nfs
