@@ -4,7 +4,7 @@ set -e
 
 mounts="${@}"
 HOSTS="${HOSTS:-*}"
-PARAMS="${PARAMS:-(rw,sync,no_root_squash,no_subtree_check,insecure)}"
+PARAMS="${PARAMS:-(rw,sync,no_root_squash,no_subtree_check,insecure,fsid=0)}"
 
 for mnt in "${mounts[@]}"; do
   src=$(echo $mnt | awk -F':' '{ print $1 }')
