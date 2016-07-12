@@ -10,7 +10,7 @@ for mnt in "${mounts[@]}"; do
   src=$(echo $mnt | awk -F':' '{ print $1 }')
   mkdir -p $src
   echo "$src $HOSTS$PARAMS" >> /etc/exports
-  echo "Added: $src $PARAMS"		 +  echo "Added: $src $HOSTS$PARAMS"
+  echo "Added: $src $HOSTS$PARAMS"
 done
 
 exec runsvdir /etc/sv
